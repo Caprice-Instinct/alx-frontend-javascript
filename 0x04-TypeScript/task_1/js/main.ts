@@ -7,7 +7,7 @@ interface Teacher {
   [propName: string]: any;
 }
 
-interface Directors extends Teacher {
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
@@ -15,9 +15,9 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
-  return `${firstName.charAt(0)}. ${lastName}`;
-};
+function printTeacher({ firstName, lastName }: { firstName: string, lastName: string }): string {
+  return `${firstName}. ${lastName}`;
+}
 
 interface StudentConstructor {
   new (firstName: string, lastName: string): StudentClassInterface;
@@ -56,7 +56,7 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
-const director1: Directors = {
+const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
